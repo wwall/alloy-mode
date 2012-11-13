@@ -90,6 +90,8 @@
   (modify-syntax-entry ?\| "."  alloy-mode-syntax-table)
 
   (modify-syntax-entry ?\_ "w"  alloy-mode-syntax-table)
+  (modify-syntax-entry ?\' "w"  alloy-mode-syntax-table)
+  (modify-syntax-entry ?\" "w"  alloy-mode-syntax-table)
   ;; backquote is open and close paren
   (modify-syntax-entry ?\` "$"  alloy-mode-syntax-table)
   ;; comment delimiters
@@ -148,7 +150,7 @@ rigidly along with this one."
     (beginning-of-line)
     (setq bol (point))
     (condition-case nil
-        (re-search-backward "[!-~]")
+        (re-search-backward "[^\000-\040]")
       (error (setq indentcol 0)))
     (when (< indentcol 0)
       (if (looking-at alloy-indent-expr)
@@ -164,14 +166,14 @@ rigidly along with this one."
         (setq sameindent 1))
       (beginning-of-line)
       (setq bolast (current-column))
-      (re-search-forward "[!-~]")
+      (re-search-forward "[^\000-\040]")
       (backward-char)
       (setq last-indent (- (current-column) bolast))
       (goto-char oldpoint)
       (end-of-line)
       (setq eol (point))
       (beginning-of-line)
-      (re-search-forward "[!-~]" eol t 1)
+      (re-search-forward "[^\000-\040]" eol t 1)
       (if (> (point) bol) (backward-char) nil)
       (if (looking-at "}")
           (setq cbrace 1)
@@ -198,7 +200,7 @@ rigidly along with this one."
             ;; with the {
             (progn
               (beginning-of-line)
-              (re-search-forward "[!-~]")
+              (re-search-forward "[^\000-\040]")
               (backward-char)
               (if (= cbrace 1)
                   (setq indentcol (current-column))
