@@ -25,6 +25,7 @@
               "uses" "run" "check" "eval" "for" "but" "none"
               "univ" "iden" "in" "no"
               "with" "sum" "if" "then" "else"
+              "pred"
               )
             "\\|"))
     (kw2 (mapconcat 'identity
