@@ -99,7 +99,8 @@
   ;; comment delimiters
   (modify-syntax-entry ?/  ". 124b" alloy-mode-syntax-table)
   (modify-syntax-entry ?*  ". 23"   alloy-mode-syntax-table)
-  (modify-syntax-entry ?\n "> b    "  alloy-mode-syntax-table)
+  (modify-syntax-entry ?-  ". 12b" alloy-mode-syntax-table)
+  (modify-syntax-entry ?\n "> b   "  alloy-mode-syntax-table)
   (modify-syntax-entry ?  "    " alloy-mode-syntax-table)
   (modify-syntax-entry ?\t "    " alloy-mode-syntax-table)
   (modify-syntax-entry ?\r "    " alloy-mode-syntax-table)
