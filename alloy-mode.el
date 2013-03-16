@@ -249,4 +249,6 @@ rigidly along with this one."
   (use-local-map alloy-mode-map)
 )
 
+(add-to-list 'auto-mode-alist '("\\.als\\'" . alloy-mode))
+
 (provide 'alloy-mode)
