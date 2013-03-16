@@ -21,11 +21,12 @@
   (let ((kw1 (mapconcat 'identity
             '("sig" "fun" "det" "let" "extends"
               "static" "disj" "option" "set" "all"
-              "some" "sole" "open"
-              "uses" "run" "check" "eval" "for" "but" "none"
-              "univ" "iden" "in" "no"
+              "one" "some" "sole" "open"
+              "uses" "run" "check" "eval" "for" "but" "none" "exactly"
+              "univ" "iden" "in" "no" "not"
               "with" "sum" "if" "then" "else"
-              "pred"
+              "pred" "iff" "implies"
+              "and" "or" ;; "=>" "=" "+" "-"
               )
             "\\|"))
     (kw2 (mapconcat 'identity
