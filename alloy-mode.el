@@ -233,9 +233,15 @@ rigidly along with this one."
     )
   )
 
-(defun alloy-mode ()
-  (interactive)
-  (kill-all-local-variables)
+(defvar alloy-mode-hook nil
+  "*List of functions to call when Alloy mode is invoked.
+This hook is automatically executed after the `alloy-mode' is
+fully loaded.
+This is a good place to add Alloy environment specific bindings.")
+
+;;;###autoload
+(define-derived-mode alloy-mode prog-mode "Alloy"
+  :group 'alloy
   (make-local-variable 'font-lock-defaults)
   (make-local-variable 'comment-start)
   (make-local-variable 'comment-end)
@@ -243,11 +249,7 @@ rigidly along with this one."
   (make-local-variable 'comment-column)
   (make-local-variable 'comment-indent-function)
   (make-local-variable 'indent-line-function)
-
-  (set-syntax-table alloy-mode-syntax-table)
-
-  (setq major-mode          'alloy-mode
-    mode-name               "Alloy"
+  (setq
     font-lock-defaults      '(alloy-font-lock-keywords)
     comment-start           "/* "
     comment-end             " */"
@@ -255,10 +257,8 @@ rigidly along with this one."
     comment-column          40
     comment-indent-function 'java-comment-indent
     indent-line-function    'alloy-indent-line
-    indent-tabs-mode        t
-    )
-  (use-local-map alloy-mode-map)
-)
+    indent-tabs-mode        t)
+  (use-local-map alloy-mode-map))
 
 (add-to-list 'auto-mode-alist '("\\.als\\'" . alloy-mode))
 
