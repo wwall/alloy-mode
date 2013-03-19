@@ -138,7 +138,14 @@
     )
   )
 
-(defvar alloy-basic-offset 3)
+
+(defgroup alloy nil
+  "Alloy-mode customizations."
+  :group 'languages)
+
+(defcustom alloy-basic-offset 3
+  "Basic indentation offset."
+  :type 'integer :group 'alloy)
 
 
 (defun alloy-indent-line (&optional whole-exp)
