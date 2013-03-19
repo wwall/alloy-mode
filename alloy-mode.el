@@ -19,7 +19,7 @@
 
 (defvar alloy-font-lock-keywords
   (let ((kw1 (mapconcat 'identity
-            '("sig" "fun" "det" "let" "extends"
+            '("sig" "fun" "det" "let" "extends" "abstract"
               "static" "disj" "option" "set" "all"
               "one" "some" "sole" "open"
               "uses" "run" "check" "eval" "for" "but" "none" "exactly"
