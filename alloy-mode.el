@@ -138,6 +138,8 @@
     )
   )
 
+(defvar alloy-basic-offset 3)
+
 
 (defun alloy-indent-line (&optional whole-exp)
   "Indent current line as Lisp code.
@@ -188,7 +190,7 @@ rigidly along with this one."
         (if (= obrace 1)
         (if (= cbrace 1)
             (setq indentcol last-indent)
-          (setq indentcol (+ last-indent 3)))
+          (setq indentcol (+ last-indent alloy-basic-offset)))
           ;; if there isn't an opening brace at the end of the last row,
           ;; use the nearest enclosing sexp to determine indentation
           ;; if the enclosing sexp starts with ( or [
@@ -207,7 +209,7 @@ rigidly along with this one."
               (backward-char)
               (if (= cbrace 1)
                   (setq indentcol (current-column))
-                (setq indentcol (+ 3 (current-column)))))))
+                (setq indentcol (+ alloy-basic-offset (current-column)))))))
           (error (setq indentcol last-indent)))
         )))
 
